@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        script.
+            function useStrem(stream){
+                console.log('Camera Access granted');
+            };
+            function noStream(err) {
+                console.log('Camera Access denied: '+ err);
+            };
+
+            navigator.mediaDevices.getUserMedia({video: true}).then(useStrem()).catch(noStream());
